@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 350px;
+      text-align: center;
+    }
+
+    /* Optional styles for form elements (you can customize these) */
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-input, .btn-primary {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    .btn-primary {
+      background-color: #333;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: #222;
+    }
+    body {
+  /* Existing styles... */
+  background-image: url("../assets/images/college.jpg"); /* Use the correct image path */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent image repetition */
+  background-size: cover; /* Cover the entire viewport */
+}
+
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Login Form</h2>
+    <img id="logo" src="../assets/images/Logo.webp" alt="Logo">
+    <form action="login.php" method="post">
+      <div class="form-group">
+        <label class="form-label" for="username">Username:</label>
+        <input class="form-input" type="text" id="username" name="username" placeholder="Enter your username">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="password">Password:</label>
+        <input class="form-input" type="password" id="password" name="password" placeholder="Enter your password">
+      </div>
+      <div>
+        <input type="radio" id="admin" name="type" value="admin"/> Admin
+        <input type="radio" id="user" name="type" value="user"/> User
+      </div>
+      <div class="btn-container">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

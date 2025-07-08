@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      display: flex; /* Make entire page a flexbox container */
+    }
+
+    .sidebar {
+      width: 250px;
+      height: 100%;
+      background-color: #ff0000;
+      color: #fff;
+      padding: 20px;
+      position: fixed; /* Keep sidebar fixed on the left */
+    }
+
+    .sidebar h1 {
+      text-align: center;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .sidebar a:hover {
+      background-color: #555;
+    }
+
+    .content {
+      flex: 1; /* Content takes up remaining space */
+      padding: 20px;
+    }
+
+    .welcome-message {
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    /* Add more CSS styles as needed for your content sections */
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="300" height="150"></canvas>
+  <div class="sidebar">
+    <h1>Admin Dashboard</h1>
+    <ul id="sidebarLinks">
+      <li><a href="#">Add Employee</a></li>
+      <li><a href="#">Create New Admin</a></li>
+      <li><a href="#">Change Password</a></li>
+      <li><a href="Login.html">Log out</a></li> </ul>
+  </div>
+  <div class="content">
+    <h1 class="welcome-message">Welcome Admin!</h1> 
+    <iframe src="" width="100%" height="700" style="border:1px solid black;"></iframe> 
+  </div>
+  <script>
+    const sidebarLinks = document.getElementById('sidebarLinks');
+
+    sidebarLinks.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default anchor link behavior for all links
+      const clickedLink = event.target.closest('a'); // Get the clicked anchor element
+      if (clickedLink) {
+        const linkText = clickedLink.textContent.trim(); // Get the link text (trimmed)
+        let iframeSrc;
+
+        switch (linkText) {
+          case "Add Employee":
+            iframeSrc = "AddEmployee.html";
+            break;
+          case "Create New Admin":
+            iframeSrc = "AddAdmin.html";
+            break;
+          case "Change Password":
+            iframeSrc = "ChangePasswordAdmin.html";
+            break;
+          case "Log out":
+            // No need to set iframe source, user will be redirected to Login.html
+            break;
+          default:
+            iframeSrc = "Hello welcome Admin"; // Set empty source for other actions
+        }
+
+        if (iframeSrc) { // Only set iframe source if not "Log out"
+          document.querySelector('iframe').src = iframeSrc;
+        } else {
+          // Redirect to Login.html on logout
+          window.location.href = "Login.html";
+        }
+      }
+    });
+  </script>
+</body>
+</html>
